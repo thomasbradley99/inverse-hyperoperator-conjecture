@@ -36,33 +36,52 @@ The only 4-real-dimensional normed division algebra is~$\mathbb{H}$.
 
 \section{The Dimensional Ladder}
 
-The conjecture applies where inverses produce genuine monodromy
-(continuous multivaluedness):
+Each level of the hyperoperator hierarchy, when inverted, has
+historically forced an extension of the number system. The conjecture
+frames this as a single pattern:
+
+\[
+\mathbb{N}
+  \xrightarrow{\;\text{inv.\ addition}\;}
+\mathbb{Z}
+  \xrightarrow{\;\text{inv.\ mult.}\;}
+\mathbb{Q}
+  \hookrightarrow \mathbb{R}
+  \xrightarrow{\;\text{inv.\ exp.}\;}
+\mathbb{C}
+  \xrightarrow{\;\text{inv.\ }z^z\;}
+\mathbb{H}\;?
+\]
 
 \begin{center}
-\begin{tabular}{lccc}
+\begin{tabular}{lcccc}
 \toprule
-Inverse of & Branch rank $r$ & Predicted $\dim_{\mathbb{R}}$ & Algebra \\
+Level & Inverse of & Type & Extra coords & Result \\
 \midrule
-$e^x$ (logarithm) & 1 & $1{+}1=2$ & $\mathbb{C}$ \\
-$z^z$              & 2 & $2{+}2=4$ & $\mathbb{H}\;?$ \\
+1 & addition        & algebraic & sign             & $\mathbb{Z}$ \\
+2 & multiplication  & algebraic & denominators     & $\mathbb{Q}\hookrightarrow\mathbb{R}$ \\
+3 & exponentiation  & monodromy ($r\!=\!1$) & phase  & $\mathbb{C}$ \\
+4 & $z^z$ / tetration & monodromy ($r\!=\!2$) & 2 branch indices & $\mathbb{H}\;?$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-The earlier extensions $\mathbb{N}\!\to\!\mathbb{Z}$ (subtraction) and
-$\mathbb{Z}\!\to\!\mathbb{Q}$ (division) are algebraic closures under
-discrete inverse operations, not monodromy phenomena. The conjecture's
-scope begins where analytic continuation is meaningful.
+Levels 1--2 are algebraic closures under discrete inverse operations
+(sign, denominators), not monodromy. The branch-rank formalism applies
+precisely from level~3 onward, where analytic continuation is
+meaningful. But the broader pattern is the same throughout: inverting
+the $n$-th hyperoperator forces information that the current number
+system cannot store, requiring a higher-dimensional extension.
 
 \subsection*{Why normed division algebras?}
 
-By the Hurwitz theorem, the only finite-dimensional normed division
-algebras over $\mathbb{R}$ are $\mathbb{R},\mathbb{C},\mathbb{H},
-\mathbb{O}$ (dimensions $1,2,4,8$). There are many 4-dimensional real
-algebras, but only $\mathbb{H}$ is a normed division algebra. The
-stronger form of the conjecture predicts the extension lands on the
-next Hurwitz algebra specifically --- not just any $\mathbb{R}^4$.
+By the Hurwitz theorem (1898), the only finite-dimensional normed
+division algebras over $\mathbb{R}$ are $\mathbb{R},\mathbb{C},
+\mathbb{H},\mathbb{O}$ (dimensions $1,2,4,8$). There are many
+4-dimensional real algebras, but only $\mathbb{H}$ is a normed
+division algebra. The stronger form of the conjecture predicts each
+extension lands on the next Hurwitz algebra specifically --- not just
+any space of the right dimension.
 
 \section{Two Forms of the Conjecture}
 
