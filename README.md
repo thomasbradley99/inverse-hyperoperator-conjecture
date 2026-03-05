@@ -4,6 +4,32 @@
 
 **First test case:** Inverse `z^z = w` has branch rank 2, predicting a minimum of 4 real dimensions.
 
+## Dimensional Ladder
+
+| Level | Inverse of        | Type        | Extra coords        | Result        |
+|-------|------------------|-------------|---------------------|---------------|
+| 1     | addition         | algebraic   | sign                | ℤ             |
+| 2     | multiplication   | algebraic   | denominators        | ℚ → ℝ         |
+| 3     | exponentiation   | monodromy (r=1) | phase        | ℂ             |
+| 4     | z^z / tetration  | monodromy (r=2) | 2 branch indices | ℍ?            |
+
+## Computational Results (summary)
+
+Two loops in the *w*-plane: Loop A around *w*∗ = e^(−1/e), Loop B around 0.
+
+|        | Gap in ℂ | Integer branch shift (Δk, Δm) | Closure residual |
+|--------|----------|-------------------------------|------------------|
+| Loop A | 1.096    | (0, 1)                         | ~10⁻¹⁷           |
+| Loop B | 3.147    | (1, 0)                         | 0                |
+
+Gaps and shifts are stable from n=100 to n=6400 discretisation points. See [computational-evidence.pdf](computational-gap-detection/computational-evidence.pdf) for full write-up and limitations.
+
+![Single-loop baseline: inverse path in ℂ and lifted view](computational-gap-detection/inverse_z_to_z_demo.png)
+
+![Two-loop comparison: gaps and lift diagnostics](computational-gap-detection/fig_path_completion_lift.png)
+
+![Open in ℂ, closed modulo sheet shift](computational-gap-detection/fig_closure_mod_sheet_shift.png)
+
 ## Repo Layout
 
 - `conjecture/` — the conjecture statement and proof roadmap (LaTeX).
