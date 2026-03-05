@@ -2,7 +2,6 @@
 *.log
 *.out
 *.toc
-*.pdf
 __pycache__/
 *.pyc
 .venv/

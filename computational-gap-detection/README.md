@@ -1,17 +1,20 @@
 # Computational Gap Detection
 
-This folder centralizes computational evidence experiments for the inverse-hyperoperator conjecture around `z^z = w`.
+Numerical evidence for the inverse hyperoperator conjecture, focused on inverse `z^z = w`.
+
+## Write-Up
+
+- `computational-evidence.tex`: full LaTeX document covering problem setup, method, all four experiments, results, and limitations.
+
+Build with:
+
+```bash
+pdflatex -interaction=nonstopmode computational-evidence.tex
+```
 
 ## Scripts
 
-- `01_demo_inverse_z_to_z.py`: baseline single-loop branch-lift demo.
-- `02_path_completion_lift.py`: two-loop monodromy test with non-interpolated lift coordinates.
-- `03_closure_mod_sheet_shift.py`: tests closure modulo integer sheet shift (deck-action style check).
-- `04_quotient_closure_demo.py`: clear "open in C / closed modulo sheets" summary figure + metrics.
-
-## Run With Project venv
-
-From the repository root:
+Run from the repository root with the project venv active:
 
 ```bash
 source .venv/bin/activate
@@ -21,15 +24,16 @@ python computational-gap-detection/03_closure_mod_sheet_shift.py
 python computational-gap-detection/04_quotient_closure_demo.py
 ```
 
-## Outputs
+| Script | What it does |
+|---|---|
+| `01_demo_inverse_z_to_z.py` | Single-loop branch-lift baseline |
+| `02_path_completion_lift.py` | Two-loop monodromy test, lift coordinates |
+| `03_closure_mod_sheet_shift.py` | Closure modulo integer sheet shift (deck-action check) |
+| `04_quotient_closure_demo.py` | Summary figure — open in C, closed modulo sheets |
+
+## Output Figures
 
 - `inverse_z_to_z_demo.png`
 - `fig_path_completion_lift.png`
 - `fig_closure_mod_sheet_shift.png`
 - `fig_04_quotient_closure_demo.png`
-
-## Key Interpretation
-
-`03_closure_mod_sheet_shift.py` does not claim the path closes as a point in plain `R^4`.
-It shows a stronger and more precise statement: endpoints are equal after applying the
-integer sheet shift `(Delta k, Delta m)` found by branch tracking (closure modulo sheets).
