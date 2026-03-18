@@ -1,6 +1,6 @@
-## Quaternion Super-Root Playground
+## Quaternion Playground
 
-This repo bundles two small scripts that support the ladder idea:
+Scripts that support the ladder idea:
 
 - `inverse_tetration_quaternion.py`: proves the hole in `ℂ` and shows the quaternion solution to `i^x = k`.
 - `quaternion_power_tower.py`: experiments with finite-height power towers to see how quickly iterates leave the complex plane.

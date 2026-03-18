@@ -18,10 +18,10 @@ Run from the repository root with the project venv active:
 
 ```bash
 source .venv/bin/activate
-python computational-gap-detection/01_demo_inverse_z_to_z.py
-python computational-gap-detection/02_path_completion_lift.py
-python computational-gap-detection/03_closure_mod_sheet_shift.py
-python computational-gap-detection/04_quotient_closure_demo.py
+python exploration/gap-detection/01_demo_inverse_z_to_z.py
+python exploration/gap-detection/02_path_completion_lift.py
+python exploration/gap-detection/03_closure_mod_sheet_shift.py
+python exploration/gap-detection/04_quotient_closure_demo.py
 ```
 
 | Script | What it does |

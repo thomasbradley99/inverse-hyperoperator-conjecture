@@ -1,83 +1,89 @@
-# Inverse Hyperoperator Information Conjecture
+# Inverse Hyperoperator Conjecture
 
-**Just want to understand what we have?** → **[WHAT_WE_ACTUALLY_HAVE.md](WHAT_WE_ACTUALLY_HAVE.md)** (one short page, no folders.)
+Every time we invert a hyperoperator, the answer doesn't fit in the current number system — we're forced into a bigger one. The conjecture says this pattern continues into the quaternions.
 
-**Conjecture:** If the inverse of an operator has branch rank *r* (independent branch parameters), then any globally continuous representation requires at least *r* extra real coordinates beyond the base value coordinates.
+## The pattern
 
-**First test case:** Inverse `z^z = w` (the **superlogarithm**: w → z with z^z = w) has branch rank 2, predicting a minimum of 4 real dimensions.
+| Level | Inverse of | What goes wrong | Extension |
+|-------|-----------|-----------------|-----------|
+| 1 | addition | 3 − 5 has no natural number answer | **Z** (negatives) |
+| 2 | multiplication | 1 ÷ 3 has no integer answer | **Q** → **R** (fractions, limits) |
+| 3 | exponentiation | log needs a branch choice (phase) | **C** (complex numbers) |
+| 4 | z^z / tetration | inverse needs *two* branch choices | **H**? (quaternions) |
 
-## Dimensional Ladder
+Levels 1–2 are algebraic. From level 3 onward the obstruction is *monodromy*: follow the inverse around a closed loop and you end up on a different branch.
 
-| Level | Inverse of        | Type        | Extra coords        | Result        |
-|-------|------------------|-------------|---------------------|---------------|
-| 1     | addition         | algebraic   | sign                | ℤ             |
-| 2     | multiplication   | algebraic   | denominators        | ℚ → ℝ         |
-| 3     | exponentiation   | monodromy (r=1) | phase        | ℂ             |
-| 4     | z^z / tetration  | monodromy (r=2) | 2 branch indices | ℍ?            |
+## The conjecture (one sentence)
 
-## Computational Results (summary)
+> If the inverse of a holomorphic operator has **branch rank r** (r independent integer branch parameters under analytic continuation), then any globally continuous single-valued representation of the full inverse needs at least **r extra real coordinates**.
 
-Two loops in the *w*-plane: Loop A around *w*∗ = e^(−1/e), Loop B around 0.
+For complex-valued outputs that means dim_R >= 2 + r.
 
-|        | Gap in ℂ | Integer branch shift (Δk, Δm) | Closure residual |
-|--------|----------|-------------------------------|------------------|
-| Loop A | 1.096    | (0, 1)                         | ~10⁻¹⁷           |
-| Loop B | 3.147    | (1, 0)                         | 0                |
+## First prediction: inverse of z^z
 
-Gaps and shifts are stable from n=100 to n=6400 discretisation points. See [computational-evidence.pdf](computational-gap-detection/computational-evidence.pdf) for full write-up and limitations. **[How to demo and explain →](DEMO_AND_EXPLAIN.md)**
+The map w = z^z = exp(z log z) has two independent sources of multivaluedness in its inverse:
 
-![Single-loop baseline: inverse path in ℂ and lifted view](computational-gap-detection/inverse_z_to_z_demo.png)
+- a **log branch** k in Z
+- a **Lambert-W branch** m in Z
 
-![Two-loop comparison: gaps and lift diagnostics](computational-gap-detection/fig_path_completion_lift.png)
+So r = 2, and the conjecture predicts **dim_R >= 4**. The only 4-dimensional normed division algebra (Hurwitz, 1898) is the **quaternions H**.
 
-![Open in ℂ, closed modulo sheet shift](computational-gap-detection/fig_closure_mod_sheet_shift.png)
+### Stronger form
 
-**Schematic (where the path closes):** 2D (z) and 4D (H) → path open; quotient of 4D → path closes. See [DIAGRAM_GUIDE.md](DIAGRAM_GUIDE.md) for which figure shows what.
+The general conjecture only predicts a dimension bound. The stronger form predicts the extensions land exactly on the normed division algebras: R → C → H — not just any space of the right dimension, but the specific algebra forced by the monodromy structure.
 
-![2D open, 4D open, quotient closed](computational-gap-detection/schematic_2d_4d_quotient.png)
+## What's in this repo
 
-![Open in H, closed in quotient H/(lattice)](quaternion-state/fig_open_in_H_closed_in_quotient.png)
+```
+conjecture/          The formal statement (LaTeX paper + proof roadmap)
+exploration/         All computational evidence and exploratory scripts
+  gap-detection/     Monodromy experiments for inverse z^z (4 scripts)
+  quaternion-state/  Embedding the 4D state in H, deck-action figures
+  quaternion-playground/  i^j = k witness, power towers, heatmaps
+```
 
-## Repo Layout
-
-- `conjecture/` — the conjecture statement and proof roadmap (LaTeX).
-- `computational-gap-detection/` — numerical evidence: scripts, figures, and a LaTeX write-up of experiments.
-- `quaternion-state/` — exploratory: embed 4D state in ℍ and check that deck action is translation in the (j,k)-plane (first step toward “outputs in quaternion plane”).
-
-- `quaternions/` — quaternion super-root playground: witness `i^j = k`, power towers, and superroot heatmaps (see [quaternions/README.md](quaternions/README.md)).
-
-## Current Evidence
-
-- Closed loops in the `w`-plane produce open inverse paths in C (nontrivial monodromy).
-- Two loops produce independent lift displacements (rank-2 shift matrix).
-- Paths close after applying integer sheet shifts (deck-action closure).
-- Results are stable across resolution.
-
-## What Is Not Yet Proved
-
-**Is this work definite and bulletproof? No.** The conjecture is a claim, not a theorem; the computations are evidence, not proof. See **[CONJECTURE_AND_STATUS.md](CONJECTURE_AND_STATUS.md)** for a short summary.
-
-- Formal proof that monodromy group is exactly Z x Z.
-- Global minimal-dimension proof (4D everywhere, not just tested loops).
-- Whether the 4D structure must be quaternionic H or a more general covering-state model.
-
-## Quickstart
+## Quick start
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install numpy scipy matplotlib
-
-# Run experiments
-python computational-gap-detection/01_demo_inverse_z_to_z.py
-python computational-gap-detection/02_path_completion_lift.py
-python computational-gap-detection/03_closure_mod_sheet_shift.py
-python computational-gap-detection/04_quotient_closure_demo.py
-
-# Quaternion super-root (optional)
-cd quaternions && pip3 install --target ./vendor numpy matplotlib && MPLCONFIGDIR=./mplconfig MPLBACKEND=Agg python3 explore_superroot.py && cd ..
-
-# Build documents
-cd conjecture && pdflatex -interaction=nonstopmode conjecture.tex && cd ..
-cd computational-gap-detection && pdflatex -interaction=nonstopmode computational-evidence.tex && cd ..
+python3 -m venv .venv && source .venv/bin/activate
+pip install numpy scipy matplotlib
 ```
+
+### 1. See the monodromy gap
+
+```bash
+python exploration/gap-detection/01_demo_inverse_z_to_z.py
+```
+
+Draws a closed circle in the w-plane (w = z^z), then at each point along that circle finds the inverse z (i.e. solves z^z = w) by picking whichever branch (k, m) gives the z closest to the previous step. Plots the resulting path of z values. The punchline: even though the loop in w closes perfectly, **the path in z does not come back to where it started** — there's a visible gap. That gap is monodromy. One complex number can't keep track of which branch you're on.
+
+Outputs: `inverse_z_to_z_demo.png` (left: open path in C, right: lifted 3D view) and prints the gap size.
+
+### 2. See two independent branch shifts
+
+```bash
+python exploration/gap-detection/03_closure_mod_sheet_shift.py
+```
+
+Runs the same tracking on **two different loops** — Loop A circles a critical point w* = e^(-1/e), Loop B circles the origin. For each loop it records not just z but the integer branch indices (k, m) chosen at each step. The result:
+
+- **Loop A** shifts branch indices by (Δk, Δm) = (0, 1) — only the Lambert-W branch changes
+- **Loop B** shifts by (Δk, Δm) = (1, 0) — only the log branch changes
+
+These are **independent**. And the residual after applying the sheet shift is ~10^-17 (machine epsilon), meaning the path **closes exactly once you account for the branch jump**. Also runs a resolution sweep (n = 100 to 6400) to show the shifts are stable — not numerical artifacts.
+
+Outputs: `fig_closure_mod_sheet_shift.png` and a console table of gaps/shifts/residuals.
+
+### 3. See the 4D state in quaternions
+
+```bash
+python exploration/quaternion-state/state_in_H.py
+```
+
+Takes the same two loops but now packs each point's state into a quaternion: q = Re(z) + Im(z)**i** + k_lift**j** + m_lift**k**, where k_lift and m_lift are continuous (unwrapped) versions of the branch indices. Plots the path in 3D slices of H (axes: Re z, Im z, k_lift; color: m_lift). The punchline: **the path doesn't close in H** (q_end != q_start, because the j/k components shifted by ~1). But if you identify points that differ by integer multiples of j and k — i.e. quotient out the lattice Zj + Zk — the path closes. So the 4D state lives naturally in H, and the monodromy action is translation in the (j, k)-plane.
+
+Outputs: `path_in_H.png` (two 3D scatter plots, one per loop) and prints the quaternion displacement for each loop.
+
+## Status
+
+This is a **conjecture with numerical evidence**, not a proof. The experiments show the monodromy gap, two independent branch shifts, and deck closure — they do not prove the dimension bound or that H is required. The write-ups say this explicitly. See `conjecture/PROOF_STEPS.md` for what a proof would need.

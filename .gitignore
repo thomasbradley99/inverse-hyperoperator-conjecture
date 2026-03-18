@@ -5,5 +5,7 @@
 __pycache__/
 *.pyc
 .venv/
-quaternions/vendor/
-quaternions/mplconfig/
+.DS_Store
+exploration/quaternion-playground/vendor/
+exploration/quaternion-playground/mplconfig/
+exploration/gap-detection/.mplconfig/

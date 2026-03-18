@@ -15,4 +15,4 @@ pdflatex -interaction=nonstopmode conjecture.tex
 
 ## Scope
 
-This folder states the conjecture only. Computational evidence is in `../computational-gap-detection/`.
+This folder states the conjecture only. Computational evidence is in `../exploration/`.
