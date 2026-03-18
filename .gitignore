@@ -5,3 +5,5 @@
 __pycache__/
 *.pyc
 .venv/
+quaternions/vendor/
+quaternions/mplconfig/

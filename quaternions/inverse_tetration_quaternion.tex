@@ -1,0 +1,82 @@
+\\documentclass[11pt]{article}
+\\usepackage{amsmath, amssymb, amsthm}
+\\usepackage{palatino}
+
+\\title{Inverse Exponentiation as the Next Rung in the Number-System Ladder}
+\\author{Thomas Bradley}
+\\date{}
+
+\\theoremstyle{definition}
+\\newtheorem{definition}{Definition}
+\\newtheorem{example}{Example}
+
+\\theoremstyle{plain}
+\\newtheorem{theorem}{Theorem}
+\\newtheorem{proposition}{Proposition}
+
+\\begin{document}
+\\maketitle
+
+\\section{From Exponentiation to Super-Roots}
+
+The historical ``ladder of creation'' for number systems can be summarised as follows:
+
+\\[
+\\mathbb{N} \\xrightarrow{\\text{subtraction}} \\mathbb{Z}
+  \\xrightarrow{\\text{division}} \\mathbb{Q}
+  \\xrightarrow{\\text{roots}} \\mathbb{R}
+  \\xrightarrow{\\text{imaginary roots}} \\mathbb{C}.
+\\]
+
+At each stage, inverting the dominant operation forces the introduction of a larger number system. We now show that the inverse of exponentiation (super-root or ``power log'') requires leaving~$\\mathbb{C}$.
+
+\\section{A Hole in \\texorpdfstring{$\\mathbb{C}$}{C} for the Super-Root}
+
+\\begin{theorem}
+The equation $z^{\\,z} = 0$ has no solution in the complex field $\\mathbb{C}$. Consequently, $\\mathbb{C}$ is not closed under the second-order super-root.
+\\end{theorem}
+
+\\begin{proof}
+For $z \\in \\mathbb{C}\\setminus\\{0\\}$ we have $z^{\\,z} = e^{\\,z \\log z}$, where $\\log$ denotes the principal complex logarithm. The exponential map never attains~$0$, so no non-zero $z$ satisfies $z^{\\,z}=0$.
+
+At the point $z=0$ we study the limit. Compute
+\\[
+\\lim_{z \\to 0} z^{\\,z} = \\lim_{z \\to 0} e^{\\,z \\log z} = \\exp\\!\\Big(\\lim_{z \\to 0} z \\log z\\Big) = \\exp(0) = 1,
+\\]
+where the middle limit evaluates to $0$ by L'H\\^opital's rule. Thus no value of $z \\in \\mathbb{C}$ yields $z^{\\,z} = 0$.
+\\end{proof}
+
+\\section{A Quaternion Witness}
+
+\\begin{proposition}
+The inverse problem $i^{\\,x} = k$ has no solution $x \\in \\mathbb{C}$ but admits the quaternion solution $x = j$, where $i,j,k$ are the standard quaternion basis elements.
+\\end{proposition}
+
+\\begin{proof}
+For $z = a + bi \\in \\mathbb{C}$ we have
+\\[
+i^{\\,z} = e^{\\,z \\log i}
+       = \\exp\\!\\left((a+bi)\\,\\frac{i\\pi}{2}\\right)
+       = e^{-b\\pi/2}\\big(\\cos(a\\pi/2) + i \\sin(a\\pi/2)\\big),
+\\]
+which always lies in $\\mathbb{C}$. Hence $i^{\\,z}$ can never equal the purely quaternionic unit~$k$.
+
+In the quaternion algebra, extend exponentiation via
+\\[
+a^{\\,q} := \\exp\\!\\big((\\log a)\\,q\\big).
+\\]
+Taking the principal branch $\\log i = i\\pi/2$ and quaternion $j$, we obtain
+\\[
+i^{\\,j} = \\exp\\!\\left(\\left(\\frac{\\pi}{2} i\\right) j\\right)
+       = \\exp\\!\\left(\\frac{\\pi}{2} (i j)\\right)
+       = \\exp\\!\\left(\\frac{\\pi}{2} k\\right)
+       = k.
+\\]
+Thus $x=j$ solves $i^{\\,x} = k$, and $x$ lies outside $\\mathbb{C}$.
+\\end{proof}
+
+\\section{Conclusion}
+
+The theorem shows a super-root ``hole'' in $\\mathbb{C}$, while the proposition provides an explicit quaternionic solution to a super-root equation. Together they extend the number-system ladder: inverting exponentiation naturally forces the move from $\\mathbb{C}$ into the quaternions~$\\mathbb{H}$.
+\\end{document}
+
