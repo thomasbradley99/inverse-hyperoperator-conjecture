@@ -37,7 +37,7 @@ The general conjecture only predicts a dimension bound. The stronger form predic
 ```
 conjecture/          The formal statement (LaTeX paper + proof roadmap)
 exploration/         All computational evidence and exploratory scripts
-  gap-detection/     Monodromy experiments for inverse z^z (4 scripts)
+  gap-detection/     Monodromy experiments for inverse z^z (5 scripts)
   quaternion-state/  Embedding the 4D state in H, deck-action figures
   quaternion-playground/  i^j = k witness, power towers, heatmaps
 ```
@@ -74,7 +74,17 @@ These are **independent**. And the residual after applying the sheet shift is ~1
 
 Outputs: `fig_closure_mod_sheet_shift.png` and a console table of gaps/shifts/residuals.
 
-### 3. See the 4D state in quaternions
+### 3. Run composition/winding group checks
+
+```bash
+python exploration/gap-detection/05_group_checks.py
+```
+
+Checks loop composition and winding behavior (`A∘B`, `B∘A`, `2A`, `3B`, `A∘A^{-1}`), then writes a machine-readable table and summary plot.
+
+Outputs: `group_checks.csv`, `fig_05_group_checks.png`.
+
+### 4. See the 4D state in quaternions
 
 ```bash
 python exploration/quaternion-state/state_in_H.py
@@ -86,4 +96,4 @@ Outputs: `path_in_H.png` (two 3D scatter plots, one per loop) and prints the qua
 
 ## Status
 
-This is a **conjecture with numerical evidence**, not a proof. The experiments show the monodromy gap, two independent branch shifts, and deck closure — they do not prove the dimension bound or that H is required. The write-ups say this explicitly. See `conjecture/PROOF_STEPS.md` for what a proof would need.
+This is a **conjecture with numerical evidence**, not a proof. The experiments show the monodromy gap, two independent branch shifts, and deck closure — they do not prove the dimension bound or that H is required. The write-ups say this explicitly. See `conjecture/PROOF_STEPS.md` and `conjecture/THEOREM_TARGET.md` for the current proof roadmap.

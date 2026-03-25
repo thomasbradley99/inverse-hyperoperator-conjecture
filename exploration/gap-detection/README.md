@@ -22,6 +22,7 @@ python exploration/gap-detection/01_demo_inverse_z_to_z.py
 python exploration/gap-detection/02_path_completion_lift.py
 python exploration/gap-detection/03_closure_mod_sheet_shift.py
 python exploration/gap-detection/04_quotient_closure_demo.py
+python exploration/gap-detection/05_group_checks.py
 ```
 
 | Script | What it does |
@@ -30,6 +31,7 @@ python exploration/gap-detection/04_quotient_closure_demo.py
 | `02_path_completion_lift.py` | Two-loop monodromy test, lift coordinates |
 | `03_closure_mod_sheet_shift.py` | Closure modulo integer sheet shift (deck-action check) |
 | `04_quotient_closure_demo.py` | Summary figure — open in C, closed modulo sheets |
+| `05_group_checks.py` | Composition/winding checks for monodromy shifts (`A∘B`, `B∘A`, `2A`, `3B`, `A∘A^{-1}`), including order-sensitivity diagnostics |
 
 ## Output Figures
 
@@ -37,3 +39,8 @@ python exploration/gap-detection/04_quotient_closure_demo.py
 - `fig_path_completion_lift.png`
 - `fig_closure_mod_sheet_shift.png`
 - `fig_04_quotient_closure_demo.png`
+- `fig_05_group_checks.png`
+
+## Output Table
+
+- `group_checks.csv` (shift vectors, gaps, and closure residuals for composition tests)
