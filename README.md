@@ -84,7 +84,17 @@ Checks loop composition and winding behavior (`A∘B`, `B∘A`, `2A`, `3B`, `A�
 
 Outputs: `group_checks.csv`, `fig_05_group_checks.png`.
 
-### 4. See the 4D state in quaternions
+### 4. Cross-check tracker sensitivity
+
+```bash
+python exploration/gap-detection/06_tracker_crosscheck.py
+```
+
+Runs the same loop-composition cases with two continuation trackers (nearest-neighbour and lift-guided) and compares measured branch shifts side by side. This helps tell apart likely geometric effects from potential tracker artifacts.
+
+Outputs: `tracker_crosscheck.csv`, `fig_06_tracker_crosscheck.png`.
+
+### 5. See the 4D state in quaternions
 
 ```bash
 python exploration/quaternion-state/state_in_H.py
