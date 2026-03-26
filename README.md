@@ -94,7 +94,17 @@ Runs the same loop-composition cases with two continuation trackers (nearest-nei
 
 Outputs: `tracker_crosscheck.csv`, `fig_06_tracker_crosscheck.png`.
 
-### 5. See the 4D state in quaternions
+### 5. Check domain/homotopy order effects
+
+```bash
+python exploration/gap-detection/07_domain_homotopy_checks.py
+```
+
+Adds a homotopy diagnostic pass: for each composition case it records winding numbers around punctures (`0`, `w*`) and reduced based-loop words, then compares those with measured branch shifts. This helps explain why two loops can have similar winding data but different continuation outcomes when loop order changes.
+
+Outputs: `domain_homotopy_checks.csv`, `fig_07_domain_homotopy_checks.png`.
+
+### 6. See the 4D state in quaternions
 
 ```bash
 python exploration/quaternion-state/state_in_H.py
