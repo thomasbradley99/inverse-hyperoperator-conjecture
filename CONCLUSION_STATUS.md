@@ -68,6 +68,9 @@ See `conjecture/THEOREM_TARGET.md`:
 - conclude no global single-valued inverse map into `C` can represent full branch behavior continuously;
 - conclude at least two extra real coordinates are required (total at least 4).
 
+For a more precise assumptions-and-lemmas checklist, see
+`conjecture/FORMAL_FRAMEWORK.md`.
+
 ## Bottom line
 
 This repository now contains:

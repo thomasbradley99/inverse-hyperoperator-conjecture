@@ -7,6 +7,7 @@ The conjecture statement, motivation, and concrete prediction — no experimenta
 - `conjecture.tex`: the Inverse Hyperoperator Information Conjecture and its prediction for inverse `z^z`.
 - `PROOF_STEPS.md`: plain-language theorem roadmap.
 - `THEOREM_TARGET.md`: near-term theorem statement and proof skeleton (dimension lower bound track).
+- `FORMAL_FRAMEWORK.md`: precise proof-track assumptions, theorem form, and lemma checklist.
 
 ## Build
 
