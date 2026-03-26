@@ -71,6 +71,8 @@ See `conjecture/THEOREM_TARGET.md`:
 For a more precise assumptions-and-lemmas checklist, see
 `conjecture/FORMAL_FRAMEWORK.md`.
 
+For collaborator task-splitting, see `conjecture/LEMMA_WORKSHEET.md`.
+
 ## Bottom line
 
 This repository now contains:

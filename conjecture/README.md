@@ -8,6 +8,7 @@ The conjecture statement, motivation, and concrete prediction — no experimenta
 - `PROOF_STEPS.md`: plain-language theorem roadmap.
 - `THEOREM_TARGET.md`: near-term theorem statement and proof skeleton (dimension lower bound track).
 - `FORMAL_FRAMEWORK.md`: precise proof-track assumptions, theorem form, and lemma checklist.
+- `LEMMA_WORKSHEET.md`: actionable checklist for splitting proof tasks across collaborators.
 
 ## Build
 
