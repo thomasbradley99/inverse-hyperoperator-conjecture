@@ -116,4 +116,4 @@ Outputs: `path_in_H.png` (two 3D scatter plots, one per loop) and prints the qua
 
 ## Status
 
-This is a **conjecture with numerical evidence**, not a proof. The experiments show the monodromy gap, two independent branch shifts, and deck closure — they do not prove the dimension bound or that H is required. The write-ups say this explicitly. See `conjecture/PROOF_STEPS.md` and `conjecture/THEOREM_TARGET.md` for the current proof roadmap.
+This is a **conjecture with numerical evidence**, not a proof. The experiments show the monodromy gap, two independent branch shifts, deck closure, and loop-composition diagnostics — they do not prove the dimension bound or that H is required. The write-ups say this explicitly. See `CONCLUSION_STATUS.md` for the current evidence/open-questions snapshot, plus `conjecture/PROOF_STEPS.md` and `conjecture/THEOREM_TARGET.md` for the proof roadmap.
